@@ -16,7 +16,7 @@ public class MapStructRules {
 
   @ArchTest
   public static final ArchRule UNMAPPED_TARGET_POLICY_MUST_BE_ERROR = classes()
-      .that().areInterfaces().and().areAnnotatedWith(Mapper.class)
+      .that().areAnnotatedWith(Mapper.class)
       .should(haveAnnotationWithPropertyValue(Mapper.class, Mapper::unmappedTargetPolicy, ReportingPolicy.ERROR));
 
 }
