@@ -9,9 +9,8 @@ subprojects {
     apply plugin: 'signing'
 
     group 'com.vitechteam.archtests'
-    version '0.1'
+    version '0.2'
     sourceCompatibility = '1.8'
-    targetCompatibility = '11'
 
     repositories {
         mavenCentral()
