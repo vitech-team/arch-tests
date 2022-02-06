@@ -1,4 +1,5 @@
 rootProject.name = 'arch-tests'
 include 'mapstruct'
 include 'spring'
+include 'general'
 
