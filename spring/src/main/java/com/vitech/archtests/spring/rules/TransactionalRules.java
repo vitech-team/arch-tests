@@ -5,7 +5,6 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 import static com.vitech.archtests.spring.rules.tool.Conditions.callAnnotatedMethodFromTheSameClass;
 
-import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.library.freeze.FreezingArchRule;
 import org.springframework.stereotype.Component;
@@ -25,7 +24,6 @@ public class TransactionalRules {
    * More about issue and solutions - https://codete.com/blog/5-common-spring-transactional-pitfalls/
    * Understanding proxying mechanism - https://docs.spring.io/spring-framework/docs/3.0.0.M3/reference/html/ch08s06.html
    */
-  @ArchTest
   public static final ArchRule NO_TRANSACTIONAL_METHODS_CALL_FROM_THE_SAME_INSTANCE = FreezingArchRule.freeze(noClasses()
       .should(callAnnotatedMethodFromTheSameClass(Transactional.class))
       .as("@Transactional methods shouldn't be called from the same class because no proxy will be used then."));
@@ -35,7 +33,6 @@ public class TransactionalRules {
    * More about issue and solutions - https://codete.com/blog/5-common-spring-transactional-pitfalls/
    * Understanding proxying mechanism - https://docs.spring.io/spring-framework/docs/3.0.0.M3/reference/html/ch08s06.html
    */
-  @ArchTest
   public static final ArchRule TRANSACTIONAL_METHODS_MUST_BE_PUBLIC = FreezingArchRule.freeze(methods()
       .that().areAnnotatedWith(Transactional.class)
       .and().areDeclaredInClassesThat(annotatedWith(Component.class).or(annotatedWith(Service.class)))

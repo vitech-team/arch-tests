@@ -1,6 +1,7 @@
 package com.vitech.archtests.general.rules;
 
 import com.tngtech.archunit.base.DescribedPredicate;
+import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaMethod;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
@@ -10,6 +11,7 @@ import org.slf4j.Marker;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @SuppressWarnings({"unused", "java:S1118"}) // rules are used indirectly by arch-unit runner
 public class ExceptionRules {
@@ -24,7 +26,10 @@ public class ExceptionRules {
             return
                 !Objects.equals(input.getOwner().getName(), "org.slf4j.Logger") ||
                     !Objects.equals(input.getName(), "error") ||
-                    (Objects.equals(input.getRawParameterTypes().getNames(), messageAndThrowable) || Objects.equals(input.getRawParameterTypes().getNames(), markerMessageAndThrowable));
+                    (
+                        Objects.equals(input.getRawParameterTypes().stream().map(JavaClass::getName).collect(Collectors.toList()), messageAndThrowable) ||
+                        Objects.equals(input.getRawParameterTypes().stream().map(JavaClass::getName).collect(Collectors.toList()), markerMessageAndThrowable)
+                    );
         }
     };
     /**

@@ -3,7 +3,6 @@ package com.vitech.archtests.spring.rules;
 import static com.tngtech.archunit.core.domain.properties.CanBeAnnotated.Predicates.annotatedWith;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.methods;
 
-import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import javax.annotation.security.RolesAllowed;
 
@@ -27,7 +26,6 @@ public class SecurityRules {
      *
      * Spring method's security - https://www.baeldung.com/spring-security-method-security
      */
-    @ArchTest
     public static final ArchRule SPRING_CONTROLLERS_MUST_BE_SECURED = FreezingArchRule.freeze(methods()
         .that().arePublic()
         .and().areDeclaredInClassesThat(annotatedWith(Controller.class).or(annotatedWith(RestController.class)))

@@ -2,7 +2,6 @@ package com.vitech.archtests.spring.rules;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
-import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.library.freeze.FreezingArchRule;
 
@@ -17,7 +16,6 @@ public class LayerRules {
      * it encapsulates your business logic;
      * you are exposing DB queries implementation details when call repository directly.
      */
-    @ArchTest
     public static final ArchRule REPOSITORIES_MUST_NOT_BE_USED_IN_CONTROLLERS = FreezingArchRule.freeze(noClasses()
         .that().haveNameMatching(".*Controller")
         .should().dependOnClassesThat().haveNameMatching(".*Repository")
