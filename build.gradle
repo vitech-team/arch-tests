@@ -9,7 +9,7 @@ subprojects {
     apply plugin: 'signing'
 
     group 'com.vitechteam.archtests'
-    version '0.1'
+    version '0.4'
     sourceCompatibility = '1.8'
     targetCompatibility = '11'
 
@@ -74,11 +74,6 @@ subprojects {
                     }
                     developers {
                         developer {
-                            name = 'Valentyn Namisnyk'
-                            organization = 'VITech'
-                            organizationUrl = 'https://vitechteam.com/'
-                        }
-                        developer {
                             name = 'Stepan Prokipchyn'
                             organization = 'VITech'
                             organizationUrl = 'https://vitechteam.com/'
@@ -106,11 +101,6 @@ subprojects {
                         }
                     }
                     developers {
-                        developer {
-                            name = 'Valentyn Namisnyk'
-                            organization = 'VITech'
-                            organizationUrl = 'https://vitechteam.com/'
-                        }
                         developer {
                             name = 'Stepan Prokipchyn'
                             organization = 'VITech'
