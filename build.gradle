@@ -18,7 +18,7 @@ subprojects {
     }
 
     dependencies {
-        implementation 'com.tngtech.archunit:archunit:0.22.0'
+        implementation 'com.tngtech.archunit:archunit:0.23.0'
     }
 
     task sourcesJar(type: Jar, dependsOn: classes) {

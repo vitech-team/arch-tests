@@ -22,7 +22,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 /**
  * Rules applied to every class in project
  */
-@SuppressWarnings({"unused", "SameParameterValue", "deprecation", "java:S1118"})
+@SuppressWarnings({"unused", "SameParameterValue", "java:S1118"})
 public class GettingCurrentTimeRules {
 
     /**
@@ -74,7 +74,7 @@ public class GettingCurrentTimeRules {
                             .and(declarationIsWithin(LocalTime.class)))));
 
     private static DescribedPredicate<AccessTarget> name(String methodName) {
-        return HasName.Predicates.name(methodName).forSubType();
+        return HasName.Predicates.name(methodName).forSubtype();
     }
 
     private static DescribedPredicate<HasOwner<JavaClass>> declarationIsWithin(Class<?> type) {
