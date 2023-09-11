@@ -22,7 +22,7 @@ public class ExceptionRules {
         private final List<String> markerMessageAndThrowable = Arrays.asList(Marker.class.getName(), String.class.getName(), Throwable.class.getName());
 
         @Override
-        public boolean apply(JavaMethod input) {
+        public boolean test(JavaMethod input) {
             return
                 !Objects.equals(input.getOwner().getName(), "org.slf4j.Logger") ||
                     !Objects.equals(input.getName(), "error") ||
